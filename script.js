@@ -111,8 +111,29 @@ if(key > -1){
     closeModal();
 });
 
+//verifica se tem pedido no cart e abre o cart a um click
+cdd('.menu-openner').addEventListener('click', ()=>{
+    if(cart.length > 0){
+        cdd('aside').style.left = '0';
+    }
+});
+
+//fecha o cart no mobile a um click
+cdd('.menu-closer').addEventListener('click', ()=>{
+        cdd('aside').style.left = '100vw';
+});
+
+
+
+
+
+//ESSA FUNÇÃO IMPORTANTE TE RESPONSABILIDADE DE ATUALIZAR PEDIDOS E FUNÇÕES
 //Abre o cart e add as informações
 function updateCart(){
+    //mobile coloca valore no cart
+    cdd('.menu-openner span').innerHTML = cart.length;
+
+
     if(cart.length > 0){
         cdd('aside').classList.add('show');
         cdd('.cart').innerHTML = "";
@@ -175,5 +196,8 @@ function updateCart(){
 
     }else{
         cdd('aside').classList.remove('show');
+
+        //MOBILE ao retirar e zerar o pedido da pizza do cart  fecha o cart
+        cdd('aside').style.left = '100vw';
     }
 }
